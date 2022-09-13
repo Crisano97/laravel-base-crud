@@ -3,7 +3,7 @@
 @section('main-content')
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-3">
                 <div class="card text-center">
                     <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }}">
                     <div class="card-body">
