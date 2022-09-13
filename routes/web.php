@@ -14,4 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ComicController@index')->name('comics');
+Route::get('/', 'HomeController@index')->name('admin.home');
+Route::get('/comics', 'ComicController@index')->name('comics.index');
+Route::get('/comics/{comic}', 'ComicController@show')->name('comics.show');
+
+// Route::resource('/comics', 'ComicController');
