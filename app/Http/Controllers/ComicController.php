@@ -63,7 +63,7 @@ class ComicController extends Controller
      */
     public function show($slug)
     {
-        $comic = Comic::where('slug',$slug)->first();
+        $comic = Comic::where('slug',$slug)->firstorFail();
         return view('comics.show', compact('comic'));
     }
 
@@ -75,7 +75,7 @@ class ComicController extends Controller
      */
     public function edit($slug)
     {
-        $comic = Comic::where('slug', $slug)->first();
+        $comic = Comic::where('slug', $slug)->firstOrFail();
         return view('comics.edit', compact('comic'));
     }
 
