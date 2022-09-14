@@ -6,9 +6,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{{ route('admin.home') }}">Home</a>
-                    <a class="nav-link" href="{{ route('comics.index') }}">Comics</a>
+                <div class="navbar-nav w-100">
+                    <a class="nav-link {{ request()->routeIs('admin.home')  ? 'text-danger' : '' }}" aria-current="page" href="{{ route('admin.home') }}">Home</a>
+                    <a class="nav-link {{ request()->routeIs('comics.index')  ? 'text-danger' : '' }}" href="{{ route('comics.index') }}">Comics</a>
+                    <a href="{{ route('comics.create') }}" class="nav-link ms-auto">Add a new comic</a>
               </div>
             </div>
         </div>
