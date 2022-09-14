@@ -63,7 +63,7 @@ class ComicController extends Controller
      */
     public function show($slug)
     {
-        $comic = Comic::where('slug',$slug)->firstorFail();
+        $comic = Comic::where('slug',$slug)->firstOrFail();
         return view('comics.show', compact('comic'));
     }
 
