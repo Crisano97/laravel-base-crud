@@ -9,7 +9,7 @@
                 <div class="navbar-nav w-100">
                     <a class="nav-link {{ request()->routeIs('admin.home')  ? 'text-danger' : '' }}" aria-current="page" href="{{ route('admin.home') }}">Home</a>
                     <a class="nav-link {{ request()->routeIs('comics.index')  ? 'text-danger' : '' }}" href="{{ route('comics.index') }}">Comics</a>
-                    <a href="{{ route('comics.create') }}" class="nav-link ms-auto">Add a new comic</a>
+                    <a href="{{ route('comics.create') }}" class="nav-link ms-auto {{ request()->routeIs('comics.create')  ? 'text-danger' : '' }}">Add a new comic</a>
               </div>
             </div>
         </div>
