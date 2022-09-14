@@ -36,7 +36,7 @@
                         <input type="date" class="form-control" id="input-sale-date" name="sale_date">
                     </div>
     
-                    <a href="{{ route('comics.store') }}" type="submit" class="btn btn-primary">Submit</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
