@@ -12,6 +12,7 @@
                         <th>Type</th>
                         <th>Price</th>
                         <th>Sale Date</th>
+                        <th></th>
                     </thead>
                     <tbody>
                         @forelse ($comics as $comic)
@@ -26,10 +27,13 @@
                                 <td>{{ $comic->type }}</td>
                                 <td>{{ $comic->price }}</td>
                                 <td>{{ $comic->sale_date }}</td>
+                                <td>
+                                    <a href="{{ route('comics.edit', $comic->slug) }}" class="btn btn-sm btn-success">Edit</a>
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan=1>non sono disponibili comic</td>
+                                <td colspan=6>non sono disponibili comic</td>
                             </tr>
                         @endforelse
                     </tbody>
