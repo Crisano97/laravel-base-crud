@@ -38,7 +38,7 @@
                                 <td>{{ $comic->sale_date }}</td>
                                 <td>
                                     <a href="{{ route('comics.edit', $comic->slug) }}" class="btn btn-sm btn-success">Edit</a>
-                                    <form action="{{ route('comics.destroy', $comic->slug) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('comics.destroy', $comic->slug) }}" method="POST" class="d-inline delete-comics">
                                         @csrf
                                         @method('DELETE')
                                         
@@ -57,4 +57,20 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer-scripts')
+    <script>
+        const deleteComics = document.querySelectorAll('.delete-comics');
+        deleteComics.forEach(
+            formElement =>{
+                formElement.addEventListener('submit', function(event){
+                    event.preventDefault();
+                    const result = window.confirm('Are you sure to continue?');
+                    if(result) this.submit();
+                })
+            }
+        )
+
+    </script>
 @endsection
