@@ -4,8 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('comics.store') }}" method="POST">
+                <form action="{{ route('comics.update', $comic->slug)}}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="input-thumb" class="form-label">Thumb</label>
                         <input type="text" class="form-control" id="input-thumb" name="thumb" value="{{ $comic->thumb }}">
@@ -16,7 +17,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="input-description" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" id="input-description" cols="30" rows="10" value="{{ $comic->description }}">{{ $comic->description }}</textarea>
+                        <textarea class="form-control" name="description" id="input-description" cols="30" rows="10">{{ $comic->description }}</textarea>
                     </div>
 
                     <div class="mb-3">

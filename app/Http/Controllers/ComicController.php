@@ -63,7 +63,7 @@ class ComicController extends Controller
      */
     public function show($slug)
     {
-        $comic = Comic::where('slug',$slug)->firstOrFail();
+        $comic = Comic::where('slug', $slug)->firstOrFail();
         return view('comics.show', compact('comic'));
     }
 
@@ -86,9 +86,24 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $data = $request->all();
+
+        $newComic = Comic::where('slug', $slug)->firstOrFail();
+        $newComic->title = $data['title'];
+        $newComic->description = $data['description'];
+        $newComic->thumb = $data['thumb'];
+        $newComic->price = $data['price'];
+        $newComic->series = $data['series'];
+        $newComic->sale_date = $data['sale_date'];
+        $newComic->type = $data['type'];
+        $newComic->slug = Str::slug($newComic->title, '-');
+        $newComic->save();
+
+        return redirect()->route('comics.show', $newComic->slug);
+
+        
     }
 
     /**
