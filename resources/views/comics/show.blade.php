@@ -3,6 +3,11 @@
 @section('main-content')
     <div class="container">
         <div class="row">
+            @if (session('edited'))
+                <div class="alert alert-success">
+                    {{ session('edited') }} Comic edited
+                </div>
+            @endif
             <div class="col-3">
                 <div class="card text-center">
                     <a href="{{ route('comics.edit', $comic->slug) }}" class="btn btn-sm btn-success">Edit this Comic</a>

@@ -52,7 +52,7 @@ class ComicController extends Controller
         $newComic->slug = Str::slug($newComic->title, '-');
         $newComic->save();
 
-        return redirect()->route('comics.index', $newComic->slug);
+        return redirect()->route('comics.index', $newComic->slug)->with('created', $newComic->title);
     }
 
     /**
@@ -104,7 +104,7 @@ class ComicController extends Controller
         $newComic["slug"] = Str::slug($newComic->title, '-');
         $newComic->update($data);
 
-        return redirect()->route('comics.index', $newComic->slug);
+        return redirect()->route('comics.show', $newComic->slug)->with('edited', $newComic->title);
 
         
     }
@@ -121,6 +121,6 @@ class ComicController extends Controller
         $newComic = Comic::where('slug', $slug)->firstOrFail();
         $newComic->delete();
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('delete', $newComic->title);
     }
 }

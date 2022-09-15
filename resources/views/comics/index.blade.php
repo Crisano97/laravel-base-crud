@@ -4,6 +4,15 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if (session('delete'))
+                    <div class="alert alert-warning">
+                        {{ session('delete') }} Comic removed
+                    </div>
+                @elseif (session('created'))
+                <div class="alert alert-success">
+                    {{ session('delete') }} Comic created
+                </div>
+                @endif
                 <table class="table table-striped">
                     <thead>
                         <th>ID</th>
