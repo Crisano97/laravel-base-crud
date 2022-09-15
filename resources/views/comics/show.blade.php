@@ -5,6 +5,13 @@
         <div class="row">
             <div class="col-3">
                 <div class="card text-center">
+                    <a href="{{ route('comics.edit', $comic->slug) }}" class="btn btn-sm btn-success">Edit this Comic</a>
+                    <form action="{{ route('comics.destroy', $comic->slug) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        
+                        <button type="submit" class="btn btn-sm btn-danger">Delete this Comic</button>
+                    </form>
                     <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $comic->title }}</h5>
@@ -17,7 +24,7 @@
                         <li class="list-group-item">Sale Date: {{ $comic->sale_date }}</li>
                     </ul>
 
-                    <a href="{{ route('comics.edit', $comic->slug) }}" class="btn btn-sm btn-success">Edit this work</a>
+
                 </div>
             </div>
         </div>

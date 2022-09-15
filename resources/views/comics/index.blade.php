@@ -29,11 +29,18 @@
                                 <td>{{ $comic->sale_date }}</td>
                                 <td>
                                     <a href="{{ route('comics.edit', $comic->slug) }}" class="btn btn-sm btn-success">Edit</a>
+                                    <form action="{{ route('comics.destroy', $comic->slug) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
                                 </td>
+                                
                             </tr>
                         @empty
                             <tr>
-                                <td colspan=6>non sono disponibili comic</td>
+                                <td colspan=7>non sono disponibili comic</td>
                             </tr>
                         @endforelse
                     </tbody>
