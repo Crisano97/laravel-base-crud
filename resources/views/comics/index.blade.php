@@ -10,7 +10,7 @@
                     </div>
                 @elseif (session('created'))
                 <div class="alert alert-success">
-                    {{ session('delete') }} Comic created
+                    {{ session('created') }} Comic created
                 </div>
                 @endif
                 <table class="table table-striped">
