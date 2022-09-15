@@ -16,7 +16,9 @@
                         <li class="list-group-item">Price: {{ $comic->price }}€</li>
                         <li class="list-group-item">Sale Date: {{ $comic->sale_date }}</li>
                     </ul>
-                  </div>
+
+                    <a href="{{ route('comics.edit', $comic->slug) }}" class="btn btn-sm btn-success">Edit this work</a>
+                </div>
             </div>
         </div>
     </div>
