@@ -9,6 +9,19 @@ use Illuminate\Support\Str;
 
 class ComicController extends Controller
 {
+
+    protected $validationRules = [
+                'title' => 'required|min:3|max:255',
+                'description' => 'required|min:3',
+                'thumb' => 'required|url',
+                'price' => 'required|numeric|between:2,20',
+                'series' => 'required|min:3|max:255',
+                'sale_date' => 'required|date|after:1900/01/01',
+                'type' => 'required|min:3|max:255'     
+    ];
+    
+    protected $customValidationMessages = [];
+
     /**
      * Display a listing of the resource.
      *
@@ -40,6 +53,8 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        $validatedData = $request->validate($this->validationRules);
 
         $newComic = new Comic;
         $newComic->title = $data['title'];
@@ -89,6 +104,8 @@ class ComicController extends Controller
     public function update(Request $request, $slug)
     {
         $data = $request->all();
+
+        $validatedData = $request->validate($this->validationRules);
 
         $newComic = Comic::where('slug', $slug)->firstOrFail();
         // $newComic->title = $data['title'];
