@@ -4,15 +4,22 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                @if (session('delete'))
+                {{-- @if (session('delete'))
                     <div class="alert alert-warning">
                         {{ session('delete') }} Comic removed
                     </div>
                 @elseif (session('created'))
-                <div class="alert alert-success">
-                    {{ session('created') }} Comic created
-                </div>
+                    <div class="alert alert-success">
+                        {{ session('created') }} Comic created
+                    </div>
+                @endif --}}
+
+                @if (session('result-message'))
+                    <div class="alert alert-{{ session('result-class-message') }}">
+                        {{ session('result-message') }}
+                    </div>
                 @endif
+
                 <table class="table table-striped">
                     <thead>
                         <th>ID</th>
