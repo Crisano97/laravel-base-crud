@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 
-                <form action="{{ route('comics.store') }}" method="POST">
+                <form action="{{ route('comics.store'), $comic->slug }}" method="POST">
                     @csrf
                     
                     @include('comics.includes.form')
